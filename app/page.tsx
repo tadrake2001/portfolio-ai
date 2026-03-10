@@ -15,12 +15,12 @@ const projects = [
     description: 'Detecting strategic misrepresentation in ESG reports using fine-tuned LLMs and Active Learning techniques.',
     detailedDescription: 'Analyzing ~14,500 sentences from 21 top Vietnamese corporations (FPT, VNM, TCB...) to detect reporting anomalies. Leveraged LLM models with PEFT/LoRA fine-tuning and 4-bit quantization. Integrated Active Learning (Uncertainty & Diversity sampling) to optimize labeling for E, S, G, and N categories.',
     problem: 'Manual auditing of massive PDF disclosures is inefficient and fails to detect subtle strategic misrepresentation in emerging markets like Vietnam.',
-    solution: 'An automated NLP pipeline utilizing "underthesea" for Vietnamese tokenization and Local LLM serving (LM Studio) to provide real-time behavioral insights with strict data privacy.',
+    solution: 'Engineered a specialized NLP framework using fine-tuned Qwen models with PEFT/LoRA. The solution integrates "underthesea" for precise Vietnamese tokenization and utilizes 4-bit quantization for efficient local inference, enabling deep behavioral auditing of corporate ESG reports with strict data privacy.',
     tech: ['Python', 'LLMs', 'PEFT/LoRA', 'Active Learning', 'Transformers', 'PyTorch'],
     metrics: [
       { label: 'Data Scale', value: '14,500 Sentences' },
       { label: 'Target Entities', value: '21 Top Corps' },
-      { label: 'Weighted F1-Score', value: '91.8%' },
+      { label: 'Weighted F1-Score', value: '89.8%' },
       { label: 'Quantization', value: '4-bit (bitsandbytes)' }
     ],
     icon: Brain,
@@ -33,12 +33,12 @@ const projects = [
     description: 'RAG-powered chatbot helping users navigate global visa requirements and stay updated on policy changes.',
     detailedDescription: 'Developed an intelligent assistant capable of parsing complex visa regulations and provide context-aware answers. It uses Retrieval-Augmented Generation (RAG) to ensure responses are based on the latest official government documentation.',
     problem: 'Navigating international visa requirements is confusing, as documentation is scattered across multiple government portals and often outdated.',
-    solution: 'Implemented a pipeline that indexes PDF guidelines and uses LLMs to answer queries with precise citations, reducing research time from hours to seconds.',
+    solution: 'Architected a Retrieval-Augmented Generation (RAG) system that indexes thousands of pages of official visa regulations. By utilizing LangChain and ChromaDB, the assistant provides real-time, contextually accurate answers with direct citations to government portals.',
     tech: ['Python', 'OpenAI SDK', 'LangChain', 'ChromaDB', 'Streamlit'],
     metrics: [
       { label: 'Accuracy', value: '95%' },
       { label: 'Latency', value: '1.5s' },
-      { label: 'Supported Countries', value: '30+' }
+      { label: 'Supported Countries', value: '10+' }
     ],
     icon: MessageSquare,
     color: 'bg-blue-500/10'
@@ -50,7 +50,7 @@ const projects = [
     description: 'A lightweight tool for extracting structured data from research PDFs and academic articles.',
     detailedDescription: 'EasyExtract uses zero-shot extraction techniques to automatically identify and structure metadata from academic papers, such as titles, authors, and keywords, into clean JSON format.',
     problem: 'Manually copying metadata and references from academic papers into databases is tedious and error-prone for researchers.',
-    solution: 'Built a simple Python-based utility that leverages lightweight NLP models to identify key entities within documents without intensive manual labeling.',
+    solution: 'Developed a zero-shot metadata extraction utility optimized for academic PDFs. Leveraging transformer-based models and structured parsing, the tool automates the conversion of unstructured research data into machine-readable JSON formats with high fidelity.',
     tech: ['Python', 'Pydantic', 'FastAPI', 'PyPDF2', 'NLP'],
     metrics: [
       { label: 'Extraction Rate', value: '98%' },
@@ -67,7 +67,7 @@ const projects = [
     description: 'Creating consistent virtual identities with AI for social media and brand representation.',
     detailedDescription: 'Developing a comprehensive workflow for AI Influencer creation. This involves training LoRA models for face consistency, using IP-Adapter for pose control, and integrating LLMs for persona voice and automated content scheduling. The goal is to create believable, high-fidelity virtual personas that can maintain identity persistence across various environments.',
     problem: 'Maintaining visual consistency across different poses, lighting, and environments is a major challenge in creating believable AI personas for long-term branding.',
-    solution: 'Built a standardized pipeline using ComfyUI and custom nodes to ensure identity persistence and automated high-quality asset generation with minimal manual intervention.',
+    solution: 'Engineered an identity persistence pipeline using ComfyUI. The system combines custom-trained LoRA models for facial consistency with IP-Adapter for pose steering and ControlNet for environmental control, ensuring stable and branded virtual persona generation.',
     tech: ['Stable Diffusion', 'LoRA', 'IP-Adapter', 'ComfyUI', 'FaceSwap'],
     metrics: [
       { label: 'Identity Consistency', value: 'High' },
@@ -83,7 +83,7 @@ const projects = [
     description: 'Automated verification system to assess the accuracy of corporate sustainability claims.',
     detailedDescription: 'Building a multi-agent system designed to cross-reference ESG disclosures with external data sources like news, financial records. The system identifies potential greenwashing by detecting discrepancies between reported claims and observable evidence.',
     problem: 'ESG reports are often self-reported and can contain misleading or unverified claims that lead to "greenwashing".',
-    solution: 'Developed a fact-checking pipeline that uses RAG and specialized AI agents to assign a trust score to individual claims within a report.',
+    solution: 'Designing a multi-agent fact-checking architecture that cross-validates ESG claims against trusted external news and financial databases. Employs autonomous agents to perform deep-dive analysis, surfacing potential greenwashing risks and transparency scores.',
     tech: ['Python', 'LLMs', 'LangChain', 'Multi-Agent Systems', 'Transformers', 'PyTorch'],
     metrics: [
       { label: 'Trust Accuracy', value: 'In Development' },
@@ -331,13 +331,13 @@ export default function Home() {
           </div>
         </section>
       )}
-
+      
       {/* Work Section */}
       <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-border">
         {!selectedProject ? (
           <>
             <h2 className="text-4xl font-bold mb-2">Work</h2>
-            <p className="text-muted-foreground mb-12">Engineering high-dimensional solutions for complex real-world problems.</p>
+            
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Featured Project - Full Width at Top */}

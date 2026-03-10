@@ -15,7 +15,7 @@
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.40 0.02 264.364);
+  --muted-foreground: oklch(0.35 0.02 264.364);
   --accent: oklch(0.65 0.18 190);
   --accent-foreground: oklch(0.208 0.042 265.755);
   --destructive: oklch(0.577 0.245 27.325);
@@ -136,10 +136,10 @@
 
 @keyframes status-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(156, 217, 214, 0.7);
+    box-shadow: 0 0 0 0 oklch(0.75 0.1 190 / 0.7);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(156, 217, 214, 0);
+    box-shadow: 0 0 0 8px oklch(0.75 0.1 190 / 0);
   }
 }
 

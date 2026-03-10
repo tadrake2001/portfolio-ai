@@ -7,6 +7,7 @@ import { SiPytorch, SiTensorflow, SiScikitlearn, SiHuggingface, SiPandas, SiNump
 import { TbSql } from 'react-icons/tb';
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('hero');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [particles, setParticles] = useState<Array<{ id: number; left: string; top: string; delay: string }>>([]);
   const [mounted, setMounted] = useState(false);
@@ -22,12 +23,37 @@ export default function Home() {
       delay: Math.random() * 2 + 's',
     }));
     setParticles(generatedParticles);
+
+    // Section Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0,
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    const sections = ['hero', 'experience', 'projects', 'stack', 'contact'];
+    sections.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
+    setActiveSection(id);
   };
 
   return (
@@ -37,7 +63,7 @@ export default function Home() {
         {particles.map((particle) => (
           <div
             key={particle.id}
-            className="absolute w-1 h-1 rounded-full bg-accent/30"
+            className="absolute w-1 h-1 rounded-full bg-accent/10 dark:bg-accent/30"
             style={{
               left: particle.left,
               top: particle.top,
@@ -50,7 +76,7 @@ export default function Home() {
 
       {/* Navigation */}
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-        <nav className="flex items-center gap-6 px-6 py-3 bg-background/80 dark:bg-[#111111]/80 backdrop-blur-md border border-border dark:border-white/10 rounded-full shadow-2xl pointer-events-auto">
+        <nav className="flex items-center gap-6 px-6 py-3 bg-background/80 dark:bg-black/80 backdrop-blur-md border border-black/5 dark:border-white/10 rounded-full shadow-lg pointer-events-auto">
           <div className="flex items-center gap-2 pr-6 border-r border-border dark:border-white/10">
             <div 
               className="w-2.5 h-2.5 rounded-full bg-accent flex-shrink-0"
@@ -61,15 +87,41 @@ export default function Home() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-6 items-center">
-            <button onClick={() => scrollToSection('hero')} className="text-sm font-medium text-muted-foreground hover:text-foreground dark:hover:text-white transition">
+            <button 
+              onClick={() => scrollToSection('hero')} 
+              className={`text-sm font-medium transition relative px-1 ${activeSection === 'hero' ? 'text-foreground dark:text-white' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
+            >
               Index
+              {activeSection === 'hero' && (
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full transition-all"></div>
+              )}
             </button>
-            <button onClick={() => scrollToSection('experience')} className="text-sm font-medium text-muted-foreground hover:text-foreground dark:hover:text-white transition">
+            <button 
+              onClick={() => scrollToSection('experience')} 
+              className={`text-sm font-medium transition relative px-1 ${activeSection === 'experience' ? 'text-foreground dark:text-white' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
+            >
               Work
+              {activeSection === 'experience' && (
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full transition-all"></div>
+              )}
             </button>
-            <button onClick={() => scrollToSection('stack')} className="text-sm font-medium text-muted-foreground hover:text-foreground dark:hover:text-white transition relative">
+            <button 
+              onClick={() => scrollToSection('projects')} 
+              className={`text-sm font-medium transition relative px-1 ${activeSection === 'projects' ? 'text-foreground dark:text-white' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
+            >
+              Research
+              {activeSection === 'projects' && (
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full transition-all"></div>
+              )}
+            </button>
+            <button 
+              onClick={() => scrollToSection('stack')} 
+              className={`text-sm font-medium transition relative px-1 ${activeSection === 'stack' ? 'text-foreground dark:text-white' : 'text-muted-foreground hover:text-foreground dark:hover:text-white'}`}
+            >
               Stack
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full"></div>
+              {activeSection === 'stack' && (
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full transition-all"></div>
+              )}
             </button>
           </div>
 
@@ -100,19 +152,25 @@ export default function Home() {
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection('hero')}
-                className="text-sm hover:text-white transition text-left text-muted-foreground"
+                className={`text-sm transition text-left px-2 py-1 rounded-md ${activeSection === 'hero' ? 'text-accent bg-accent/5' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 Index
               </button>
               <button
                 onClick={() => scrollToSection('experience')}
-                className="text-sm hover:text-white transition text-left text-muted-foreground"
+                className={`text-sm transition text-left px-2 py-1 rounded-md ${activeSection === 'experience' ? 'text-accent bg-accent/5' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 Work
               </button>
               <button
+                onClick={() => scrollToSection('projects')}
+                className={`text-sm transition text-left px-2 py-1 rounded-md ${activeSection === 'projects' ? 'text-accent bg-accent/5' : 'text-muted-foreground hover:text-foreground'}`}
+              >
+                Research
+              </button>
+              <button
                 onClick={() => scrollToSection('stack')}
-                className="text-sm hover:text-white transition text-left text-muted-foreground"
+                className={`text-sm transition text-left px-2 py-1 rounded-md ${activeSection === 'stack' ? 'text-accent bg-accent/5' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 Stack
               </button>
@@ -165,13 +223,13 @@ export default function Home() {
         <h2 className="text-4xl font-bold mb-16">Experience Log</h2>
         <div className="relative pl-8 sm:pl-12">
           {/* Vertical Line */}
-          <div className="absolute left-[7px] sm:left-[17px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/50 to-transparent"></div>
+          <div className="absolute left-[7px] sm:left-[17px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent dark:from-accent via-accent/60 dark:via-accent/50 to-transparent shadow-[0_0_8px_rgba(20,184,166,0.1)]"></div>
 
           {/* Timeline Items */}
           <div className="space-y-16">
             {/* Current Role */}
             <div className="relative">
-              <div className="absolute -left-9 sm:-left-11 top-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-accent border-4 border-background shadow-lg"></div>
+              <div className="absolute -left-9 sm:-left-11 top-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-accent border-4 border-background shadow-[0_0_15px_rgba(20,184,166,0.2)]"></div>
               <div>
                 <p className="text-sm text-muted-foreground font-mono mb-1">2025 - Present</p>
                 <h3 className="text-2xl font-bold mb-2">Research Assistant</h3>
@@ -181,20 +239,20 @@ export default function Home() {
                   data processing, statistical analysis, and collaborative project coordination.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-xs px-2 py-1 bg-accent/10 border border-accent/30 rounded text-accent">Machine Learning</span>
-                  <span className="text-xs px-2 py-1 bg-accent/10 border border-accent/30 rounded text-accent">Data Analysis</span>
-                  <span className="text-xs px-2 py-1 bg-accent/10 border border-accent/30 rounded text-accent">Research</span>
+                  <span className="text-xs px-2 py-1 bg-accent/5 dark:bg-accent/10 border border-accent/20 dark:border-accent/30 rounded text-teal-700 dark:text-accent font-medium">Machine Learning</span>
+                  <span className="text-xs px-2 py-1 bg-accent/5 dark:bg-accent/10 border border-accent/20 dark:border-accent/30 rounded text-teal-700 dark:text-accent font-medium">Data Analysis</span>
+                  <span className="text-xs px-2 py-1 bg-accent/5 dark:bg-accent/10 border border-accent/20 dark:border-accent/30 rounded text-teal-700 dark:text-accent font-medium">Research</span>
                 </div>
               </div>
             </div>
 
             {/* Past Role Example */}
             <div className="relative">
-              <div className="absolute -left-9 sm:-left-11 top-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-muted border-4 border-background shadow-lg"></div>
+              <div className="absolute -left-9 sm:-left-11 top-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-200 dark:bg-muted border-4 border-background shadow-sm ring-1 ring-black/5 dark:ring-white/5"></div>
               <div>
-                <p className="text-sm text-muted-foreground font-mono mb-1">Coming Soon</p>
+                <p className="text-sm text-foreground/70 dark:text-muted-foreground font-mono mb-1">Coming Soon</p>
                 <h3 className="text-2xl font-bold mb-2">Next Chapter</h3>
-                <p className="text-muted-foreground/60 font-semibold mb-4">Future Opportunity</p>
+                <p className="text-foreground/80 dark:text-muted-foreground/60 font-semibold mb-4">Future Opportunity</p>
                 <p className="text-muted-foreground leading-relaxed">Building the next phase of AI research and development career.</p>
               </div>
             </div>

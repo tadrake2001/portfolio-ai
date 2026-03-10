@@ -1,0 +1,79 @@
+
+> my-project@0.1.0 dev
+> next dev -p 3002 
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3002
+- Network:       http://100.84.104.118:3002
+
+✓ Starting...
+
+  We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+  The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+  	- include was updated to add '.next/dev/types/**/*.ts'
+
+✓ Ready in 1008ms
+ GET / 200 in 2.4s (compile: 2.1s, render: 245ms)
+ GET / 200 in 67ms (compile: 7ms, render: 60ms)
+✓ Compiled in 1679ms
+ GET / 200 in 430ms (compile: 87ms, render: 344ms)
+✓ Compiled in 71ms
+✓ Compiled in 148ms
+✓ Compiled in 218ms
+✓ Compiled in 212ms
+ GET / 200 in 324ms (compile: 67ms, render: 257ms)
+✓ Compiled in 152ms
+✓ Compiled in 167ms
+ GET / 200 in 318ms (compile: 65ms, render: 254ms)
+ GET / 200 in 533ms (compile: 80ms, render: 453ms)
+ GET / 200 in 532ms (compile: 134ms, render: 398ms)
+ GET / 200 in 381ms (compile: 10ms, render: 370ms)
+ GET / 200 in 385ms (compile: 261ms, render: 124ms)
+✓ Compiled in 98ms
+✓ Compiled in 249ms
+✓ Compiled in 155ms
+ GET / 200 in 312ms (compile: 64ms, render: 249ms)
+✓ Compiled in 197ms
+ GET / 200 in 53ms (compile: 4ms, render: 49ms)
+ GET / 200 in 49ms (compile: 4ms, render: 45ms)
+ GET / 200 in 53ms (compile: 3ms, render: 50ms)
+✓ Compiled in 119ms
+ GET / 200 in 356ms (compile: 78ms, render: 279ms)
+ GET / 200 in 58ms (compile: 3ms, render: 55ms)
+ GET / 200 in 109ms (compile: 8ms, render: 100ms)
+ GET / 200 in 418ms (compile: 117ms, render: 301ms)
+ GET / 200 in 421ms (compile: 66ms, render: 355ms)
+ GET / 200 in 267ms (compile: 5ms, render: 262ms)
+ GET / 200 in 289ms (compile: 28ms, render: 262ms)
+ GET / 200 in 291ms (compile: 5ms, render: 286ms)
+ GET / 200 in 294ms (compile: 56ms, render: 238ms)
+ GET / 200 in 41ms (compile: 3ms, render: 38ms)
+ GET / 200 in 331ms (compile: 64ms, render: 267ms)
+ GET / 200 in 339ms (compile: 106ms, render: 233ms)
+ GET / 200 in 276ms (compile: 130ms, render: 146ms)
+ GET / 200 in 303ms (compile: 5ms, render: 298ms)
+ GET / 200 in 304ms (compile: 21ms, render: 283ms)
+ GET / 200 in 120ms (compile: 21ms, render: 99ms)
+✓ Compiled in 178ms
+✓ Compiled in 131ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 107ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 639ms (compile: 101ms, render: 539ms)
+ GET / 200 in 172ms (compile: 13ms, render: 159ms)
+ GET / 200 in 91ms (compile: 8ms, render: 82ms)
+✓ Compiled in 86ms
+ GET / 200 in 393ms (compile: 88ms, render: 305ms)
+✓ Compiled in 67ms
+ GET / 200 in 218ms (compile: 80ms, render: 138ms)
+ GET / 200 in 218ms (compile: 128ms, render: 90ms)
+ GET / 200 in 72ms (compile: 5ms, render: 68ms)
+ GET / 200 in 43ms (compile: 4ms, render: 40ms)
+ GET / 200 in 185ms (compile: 75ms, render: 110ms)
+ GET / 200 in 59ms (compile: 4ms, render: 55ms)
+ GET / 200 in 42ms (compile: 2ms, render: 40ms)
+ GET / 200 in 22ms (compile: 3ms, render: 19ms)
+ GET / 200 in 236ms (compile: 3ms, render: 233ms)
+ GET / 200 in 48ms (compile: 4ms, render: 45ms)

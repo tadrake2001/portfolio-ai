@@ -1,0 +1,19 @@
+Progress: resolved 0, reused 1, downloaded 0, added 0
+Progress: resolved 57, reused 56, downloaded 0, added 0
+Progress: resolved 140, reused 139, downloaded 0, added 0
+Progress: resolved 237, reused 186, downloaded 1, added 0
+Packages: +1
++
+Progress: resolved 239, reused 186, downloaded 2, added 1, done
+
+dependencies:
++ react-icons 5.6.0
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: sharp@0.34.5.                                       │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 4.1s using pnpm v10.27.0

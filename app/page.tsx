@@ -11,7 +11,7 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [particles, setParticles] = useState<Array<{ id: number; left: string; top: string; delay: string }>>([]);
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -136,11 +136,11 @@ export default function Home() {
           <div className="hidden md:block pl-6 border-l border-border dark:border-white/10">
             {mounted && (
               <button 
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                 className="text-muted-foreground hover:text-foreground dark:hover:text-white transition pt-1"
                 aria-label="Toggle dark mode"
               >
-                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                {resolvedTheme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             )}
           </div>

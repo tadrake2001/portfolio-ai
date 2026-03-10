@@ -101,3 +101,101 @@
  GET / 200 in 145ms (compile: 32ms, render: 113ms)
 ✓ Compiled in 68ms
  GET / 200 in 393ms (compile: 83ms, render: 309ms)
+✓ Compiled in 111ms
+✓ Compiled in 115ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 146ms
+ GET / 200 in 383ms (compile: 92ms, render: 290ms)
+✓ Compiled in 126ms
+✓ Compiled in 73ms
+✓ Compiled in 77ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 67ms
+ GET / 200 in 391ms (compile: 84ms, render: 307ms)
+✓ Compiled in 134ms
+✓ Compiled in 128ms
+✓ Compiled in 105ms
+✓ Compiled in 165ms
+⨯ ./app/page.tsx:324:28
+Parsing ecmascript source code failed
+[0m [90m 322 |[39m               [33m>[39m
+ [90m 323 |[39m                 [33m<[39m[33mdiv[39m className[33m=[39m[32m"aspect-[16/10] flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]"[39m[33m>[39m
+[31m[1m>[22m[39m[90m 324 |[39m                   [33m<[39m[33mprojects[39m[[35m0[39m][33m.[39micon className[33m=[39m[32m"w-24 h-24 text-white/20 group-hover:text-accent transition-colors duration-500"[39m [33m/[39m[33m>[39m
+ [90m     |[39m                            [31m[1m^[22m[39m
+ [90m 325 |[39m                 [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 326 |[39m                 [33m<[39m[33mdiv[39m className[33m=[39m[32m"p-8 pt-0 mt-[-20px] relative z-10"[39m[33m>[39m
+ [90m 327 |[39m                   [33m<[39m[33mdiv[39m className[33m=[39m[32m"flex items-center justify-between mb-2"[39m[33m>[39m[0m
+
+Expected '</', got '['
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+ GET / 500 in 1311ms (compile: 1100ms, render: 211ms)
+✓ Compiled in 61ms
+ GET / 200 in 356ms (compile: 87ms, render: 270ms)
+✓ Compiled in 78ms
+ GET / 200 in 403ms (compile: 93ms, render: 311ms)
+ GET / 200 in 72ms (compile: 6ms, render: 66ms)
+ GET / 200 in 54ms (compile: 4ms, render: 50ms)
+✓ Compiled in 85ms
+ GET / 200 in 400ms (compile: 84ms, render: 316ms)
+✓ Compiled in 74ms
+ GET / 200 in 348ms (compile: 68ms, render: 280ms)
+✓ Compiled in 70ms
+✓ Compiled in 96ms
+ GET / 200 in 627ms (compile: 86ms, render: 542ms)
+ GET / 200 in 71ms (compile: 4ms, render: 67ms)
+ GET / 200 in 59ms (compile: 14ms, render: 45ms)
+✓ Compiled in 128ms
+✓ Compiled in 68ms
+ GET / 200 in 177ms (compile: 90ms, render: 87ms)
+✓ Compiled in 216ms
+ GET / 200 in 804ms (compile: 119ms, render: 685ms)
+✓ Compiled in 93ms
+ GET / 200 in 615ms (compile: 106ms, render: 508ms)
+✓ Compiled in 66ms
+ GET / 200 in 581ms (compile: 102ms, render: 479ms)
+ GET / 200 in 54ms (compile: 5ms, render: 49ms)
+✓ Compiled in 69ms
+ GET / 200 in 609ms (compile: 119ms, render: 489ms)
+✓ Compiled in 106ms
+ GET / 200 in 579ms (compile: 108ms, render: 472ms)
+✓ Compiled in 111ms
+ GET / 200 in 614ms (compile: 106ms, render: 507ms)
+✓ Compiled in 117ms
+ GET / 200 in 602ms (compile: 89ms, render: 513ms)
+✓ Compiled in 87ms
+✓ Compiled in 167ms
+✓ Compiled in 148ms
+ GET / 200 in 690ms (compile: 116ms, render: 573ms)
+✓ Compiled in 159ms
+✓ Compiled in 185ms
+ GET / 200 in 778ms (compile: 124ms, render: 654ms)
+✓ Compiled in 108ms
+✓ Compiled in 115ms
+ GET / 200 in 650ms (compile: 114ms, render: 536ms)
+✓ Compiled in 96ms
+ GET / 200 in 619ms (compile: 99ms, render: 521ms)
+✓ Compiled in 91ms
+✓ Compiled in 81ms
+✓ Compiled in 77ms
+✓ Compiled in 78ms
+✓ Compiled in 133ms
+ GET / 200 in 578ms (compile: 92ms, render: 486ms)
+✓ Compiled in 133ms
+ GET / 200 in 762ms (compile: 118ms, render: 644ms)
+✓ Compiled in 231ms
+✓ Compiled in 85ms
+✓ Compiled in 66ms
+✓ Compiled in 78ms
+✓ Compiled in 90ms
+✓ Compiled in 91ms
+ GET / 200 in 609ms (compile: 87ms, render: 523ms)
